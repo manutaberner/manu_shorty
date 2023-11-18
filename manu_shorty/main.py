@@ -8,12 +8,16 @@ from starlette.datastructures import URL
 from config import get_settings
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+import uvicorn
+import os
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 models.Base.metadata.create_all(bind=engine)
-
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Use port 8000 if $PORT is not set
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
 def get_db():
     db = SessionLocal()
     try:

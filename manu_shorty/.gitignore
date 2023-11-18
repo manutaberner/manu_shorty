@@ -1,3 +1,0 @@
-# Ignore specific files/folders that shouldn't be deployed to Heroku
-# For instance, sensitive data or local development files
-local_dev_config.json

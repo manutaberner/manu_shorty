@@ -2,7 +2,7 @@ import validators
 from fastapi import Depends, FastAPI, HTTPException, Request, Form
 from sqlalchemy.orm import Session
 from fastapi.responses import RedirectResponse, HTMLResponse
-import crud, models, schemas
+from utilities import crud, models, schemas
 from database import SessionLocal, engine
 from starlette.datastructures import URL
 from config import get_settings

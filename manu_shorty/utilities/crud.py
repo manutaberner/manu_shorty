@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-import keygen, models, schemas
+from utilities import keygen, models, schemas
 
 def create_db_url(db: Session, url: schemas.URLBase) -> models.URL:
     key = keygen.create_unique_random_key(db)
